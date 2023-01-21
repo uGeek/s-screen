@@ -1,7 +1,29 @@
 #!/bin/bash
 
-VERSION="v0.1  - 26/10/2020"
+VERSION="v0.2  - 21/01/2023"
 
+
+
+if [ "$1" = "install" ] && [ "$2" = "debian" ]
+then
+    ### Ubuntu
+    sudo apt install -S screen
+    ### Install rcsync
+    sudo curl -L https://raw.githubusercontent.com/uGeek/s-screen/main/s -o /usr/bin/s	&& sudo	chmod +x /usr/bin/s
+    clear
+exit
+fi
+
+
+if [ "$1" = "install" ] && [ "$2" = "arch" ]
+then
+    ### Ubuntu
+    sudo pacman -S screen
+    ### Install rcsync
+    sudo curl -L https://raw.githubusercontent.com/uGeek/s-screen/main/s -o /usr/bin/s	&& sudo	chmod +x /usr/bin/s
+    clear
+exit
+fi
 
 
 if [ "$1" = "h" ] ||  [ "$1" = "help" ] ||  [ "$1" = "-help" ] ||  [ "$1" = "-h" ]  
@@ -19,7 +41,7 @@ Modo de empleo: s [OPCIONES]
  s        h  ->  Ayuda
  
 s $VERSION
-Copyright (C) 2020 Angel. uGeek
+Copyright (C) 2020-2023 Angel. uGeek
 ugeekpodcast@gmail.com
 "
 exit
