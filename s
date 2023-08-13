@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="v0.2  - 21/01/2023"
+VERSION="v0.3   13/08/2023"
 
 
 
@@ -38,6 +38,7 @@ Modo de empleo: s [OPCIONES]
  s        i  ->  Entrar a una sesión
  s        k  ->  Matar una sesión  
  s        n  ->  Dar nombre a una sesión
+ s        s  ->  Enviar un script o comando con nombre a segundo plano. Ejem: s s mi-script /home/usuario/script.sh
  s        h  ->  Ayuda
  
 s $VERSION
@@ -103,6 +104,14 @@ then
 echo ""
 echo "screens corriendo:"
 screen -ls | tail -n +2 | head -n -1 | cut -d ")" -f1 | sed s'|(|\t|'g 
+echo ""
+exit
+fi
+
+if [ "$1" = "s" ]
+then
+echo ""
+screen -dmS $2 $3
 echo ""
 exit
 fi
